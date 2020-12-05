@@ -16,8 +16,8 @@ const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
 const colorScale = scaleLinear()
-  .domain([0, 60000])
-  .range(["#ffcccc", "#ff0000"]);
+  .domain([0, 70000])
+  .range(["#fffdfd", "#ff0000"]);
 
 function swap(json){
     var ret = {};
@@ -33,8 +33,7 @@ const MapChart = (date) => {
   countries = swap(loadData());
   const [data, setData] = useState([]);
   useEffect(() => {
-    console.log(process.env.PUBLIC_URL + `cases.csv`)
-    csv(process.env.PUBLIC_URL + `cases.csv`).then((data) => {
+    csv(process.env.PUBLIC_URL + `/cases.csv`).then((data) => {
       console.log(data)
       let day = date.date.getDate();
       let mounth = date.date.getMonth();
